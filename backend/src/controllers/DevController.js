@@ -51,7 +51,7 @@ module.exports = {
         if (dataToUpdate.github_username) 
           delete dataToUpdate.github_username 
     
-        if (longitude && latitude) 
+        if (longitude && latitude)
           dataToUpdate.location = {
             type: "Point",
             coordinates: [longitude, latitude]
