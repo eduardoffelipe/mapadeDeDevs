@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const routes = require('./routes')
 
 mongoose.connect('mongodb+srv://eduardoffelipe:eduardo..@cluster0-kwg0k.mongodb.net/test?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
+useCreateIndex: true,  
+useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
@@ -23,4 +24,4 @@ app.use(routes);
 
 
 
-app.listen(3333);
+app.listen(3334);
