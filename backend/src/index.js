@@ -2,6 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes')
 const cors = require('cors')
+const http = require('http')
+const { setupWebsocket } = require('./websocket')
+
+const app = express();
+const server = http.Server(app);
+
+setupWebsocket(server)
 
 mongoose.connect('mongodb+srv://eduardoffelipe:eduardo..@cluster0-kwg0k.mongodb.net/test?retryWrites=true&w=majority', {
 useCreateIndex: true,  
@@ -9,7 +16,7 @@ useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
-const app = express();
+
 
 app.use(cors())
 app.use(express.json())
@@ -26,4 +33,4 @@ app.use(routes);
 
 
 
-app.listen(3334);
+server.listen(3334);
